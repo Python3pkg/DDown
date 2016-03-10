@@ -3,12 +3,13 @@
     Mail tracyliubai@gmail.com
 
 '''
+from multiprocessing import Pool
 from urllib.parse import quote
 import threading
 import urllib.request
 import socket, os
 
-socket.setdefaulttimeout(15.0)
+socket.setdefaulttimeout(150.0)
 '''
 url_list    list type
 folder      storage  path
@@ -22,9 +23,10 @@ down_type
 
 
 class download():
-    def __init__(self, url_list, folder='', path='', down_type=0):
+    def __init__(self, url_list, folder='', path='', down_type=0,pool_num=150):
         self.url_list = url_list
         self.down_type = down_type
+        self.pool_num=pool_num
         self.store_folder = ''
         self.flag = False
         if path:
@@ -49,16 +51,24 @@ class download():
 
     def start(self):
         fun = self.url_retrieve
-        if self.down_type == 1:
-            fun = self.url_open
+        if self.down_type == 0:
+            self.multi_pool(function=fun)
+        elif self.down_type == 1:
+            self.multi_thread(function=fun)
+
+    def multi_thread(self, function):
         threads_task = []
         for file in self.url_list:
-            t = threading.Thread(target=fun, args=[file])
+            t = threading.Thread(target=function, args=[file])
             threads_task.append(t)
         for task in threads_task:
             task.start()
         for task in threads_task:
             task.join()
+
+    def multi_pool(self, function):
+        pool = Pool(processes=self.pool_num)
+        pool.map(function, self.url_list)
 
     def url_open(self, url):
         try:
@@ -83,6 +93,7 @@ class download():
 
         file_name = self.store_folder + '/' + f
         try:
-            urllib.request.urlretrieve(url, file_name)
+            r = urllib.request.urlretrieve(url, file_name)
         except Exception as e:
             print(e)
+            print(url)

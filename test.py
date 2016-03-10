@@ -9,8 +9,8 @@ img = ['http://photos.tuchong.com/445896/f/9712423.jpg', 'http://photos.tuchong.
        'http://photos.tuchong.com/445896/f/9711291.jpg', 'http://photos.tuchong.com/445896/f/9709668.jpg']
 from utils import download
 
-test = download(url_list=url, folder='mp3')
-test.start()
-
-test = download(url_list=img, folder='img',path='D:/Document/test',down_type=1)
-test.start()
+if __name__ == '__main__':
+    test = download(url_list=url, folder='mp3')
+    test.start()
+    test = download(url_list=img, folder='img')
+    test.start()
