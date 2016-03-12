@@ -17,8 +17,8 @@ path        absolute path like:
             win     D:/Document/test
             unix    /root/document
 down_type
-            0: urllib.request.urlretrieve
-            1: urllib.request.urlopen
+            0: multi_pool
+            1: multi_thread
 '''
 
 
