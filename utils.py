@@ -10,23 +10,25 @@ import urllib.request
 import socket, os
 
 socket.setdefaulttimeout(150.0)
-'''
-url_list    list type
-folder      storage  path
-path        absolute path like:
-            win     D:/Document/test
-            unix    /root/document
-down_type
-            0: multi_pool
-            1: multi_thread
-'''
 
 
 class download():
-    def __init__(self, url_list, folder='', path='', down_type=0,pool_num=150):
+    def __init__(self, url_list, folder='', path='', down_type=0, pool_num=150):
+        '''
+        :param url_list:    list type
+        :param folder:      storage  path
+        :param path:        absolute path like:
+                            win     D:/Document/test
+                            unix    /root/document
+        :param down_type:
+                            0: multi_pool
+                            1: multi_thread
+        :param pool_num:    pool number
+        :return:
+        '''
         self.url_list = url_list
         self.down_type = down_type
-        self.pool_num=pool_num
+        self.pool_num = pool_num
         self.store_folder = ''
         self.flag = False
         if path:
