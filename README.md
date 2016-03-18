@@ -30,5 +30,5 @@
     from utils import download
     test = download(url_list=url,folder='img')
     test.start()
-![](img/github-DDown.gif)
+![](http://liubai.qiniudn.com/github-DDown.gif)
 

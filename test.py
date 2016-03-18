@@ -7,7 +7,7 @@ img = ['http://photos.tuchong.com/445896/f/9712423.jpg', 'http://photos.tuchong.
        'http://photos.tuchong.com/445896/f/9712254.jpg', 'http://photos.tuchong.com/445896/f/9712219.jpg',
        'http://photos.tuchong.com/445896/f/9711352.jpg', 'http://photos.tuchong.com/445896/f/9711353.jpg',
        'http://photos.tuchong.com/445896/f/9711291.jpg', 'http://photos.tuchong.com/445896/f/9709668.jpg']
-from utils import download
+from DDown.utils import download
 
 if __name__ == '__main__':
     test = download(url_list=url, folder='mp3')
