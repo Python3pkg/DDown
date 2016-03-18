@@ -1,5 +1,5 @@
 '''
-    Created by TracyDa on 3/9/2016
+    Created by TracyDa on 2016/3/18
     Mail tracyliubai@gmail.com
 '''
 from distutils.core import setup
@@ -11,8 +11,7 @@ setup(
     url='https://github.com/TracyDa/DDown',
     license='MIT',
     author='Tracy',
-    keywords = ('download', 'tool'),
-    download_url='https://github.com/TracyDa/DDown/tarball/0.3',
     author_email='tracyliubai@gmail.com',
-    description='Download web content Just Give the list',
+    download_url='https://github.com/TracyDa/DDown/tarball/0.3',
+    description='Download web content Just Give the list'
 )
