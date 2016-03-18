@@ -14,5 +14,5 @@ setup(
     keywords = ('download', 'tool'),
     download_url='https://github.com/TracyDa/DDown/tarball/0.3',
     author_email='tracyliubai@gmail.com',
-    description='Download web content Just Give the list '
+    description='Download web content Just Give the list',
 )
